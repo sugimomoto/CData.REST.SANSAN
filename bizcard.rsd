@@ -1,0 +1,99 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- See Column Definitions to specify column behavior and use XPaths to extract column values from JSON. -->
+  <rsb:info title="bizcards_fix" desc="Generated schema file." xmlns:other="http://www.rssbus.com/ns/rsbscript/2/other">
+    <!-- You can modify the name, type, and column size here.  The name must match the values in the rsb:script block below -->
+    <attr name="address"          xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/address"           />
+    <attr name="building"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/building"          />
+    <attr name="city"             xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/city"              />
+    <attr name="companyId"        xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/companyId"         />
+    <attr name="companyName"      xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/companyName"       />
+    <attr name="departmentName"   xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/departmentName"    />
+    <attr name="email"            xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/email"             />
+    <attr name="entryStatus"      xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/entryStatus"       />
+    <attr name="exchangeDate"     xs:type="date"     readonly="false" other:xPath="{SubRepeatElement}/exchangeDate"      />
+    <attr name="fax"              xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/fax"               />
+    <attr name="firstName"        xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/firstName"         />
+    <attr name="firstNameReading" xs:type="unknown"  readonly="false" other:xPath="{SubRepeatElement}/firstNameReading"  />
+    <attr name="id"               xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/id"                />
+    <attr name="lastName"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/lastName"          />
+    <attr name="lastNameReading"  xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/lastNameReading"   />
+    <attr name="memo"             xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/memo"              />
+    <attr name="mobile"           xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/mobile"            />
+    <attr name="owner_email"      xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/owner/email"       />
+    <attr name="owner_id"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/owner/id"          />
+    <attr name="owner_name"       xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/owner/name"        />
+    <attr name="personId"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/personId"          />
+    <attr name="postalCode"       xs:type="integer"  readonly="false" other:xPath="{SubRepeatElement}/postalCode"        />
+    <attr name="prefecture"       xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/prefecture"        />
+    <attr name="registeredTime"   xs:type="datetime" readonly="false" other:xPath="{SubRepeatElement}/registeredTime"    />
+    <attr name="secondTel"        xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/secondTel"         />
+    <attr name="street"           xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/street"            />
+    <attr name="tel"              xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/tel"               />
+    <attr name="title"            xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/title"             />
+    <attr name="url"              xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/url"               />
+
+    <input name="Rows@Next" desc="Identifier for the next page of results. Do not set this value manually." />
+
+    <attr name="hasMore"              xs:type="string"   readonly="false" other:xPath="hasMore"               />
+
+  </rsb:info>
+
+  <rsb:if attr="rows@next"> <!-- Evaluates to true -->
+    <rsb:else>
+      <rsb:set attr="count" value="0" />
+    </rsb:else>
+      <rsb:set attr="count" value="[rows@next | def('0') | add()]" />
+  </rsb:if>
+
+  <rsb:set attr="enablepaging" value="TRUE" />
+
+  <!-- The GET method corresponds to SELECT. Within the script block, you can see the URI modified to append a query string parameter. The results of processing are pushed to the schema's output. See SELECT Execution for more information. -->
+  <rsb:script method="GET">
+
+    <rsb:set attr="header:name" value="X-Sansan-Api-Key"/>
+    <rsb:set attr="header:value" value=[_connection.ApiKey]/>
+
+    <rsb:set attr="RepeatElement" value="/"/>
+    <rsb:set attr="SubRepeatElement" value="/data"/>
+
+    <rsb:set  attr="uri"  value="https://api.sansan.com/v1.2/bizCards/search?offset=[count]&amp;range=[_connection.Range]" />
+
+    <rsb:call op="jsonproviderGet" output="OutputParam">
+      <rsb:set attr="rows@next" value="[count]" />
+      <rsb:set attr="hasMoreContinue" value="[OutputParam.hasMore]" />
+
+      <rsb:push/>
+    </rsb:call>
+
+
+  </rsb:script>
+
+  <!-- To add support for INSERTS please see the INSERT Execution page within the help for further information and examples. -->
+  <rsb:script method="POST">
+    <rsb:set attr="method" value="POST"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Inserts are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for UPDATES please see the UPDATE Execution page within the help for further information and examples. -->
+  <rsb:script method="MERGE">
+    <rsb:set attr="method" value="PUT"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Updates are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for DELETES please see the DELETE Execution page within the help for further information and examples. -->
+  <rsb:script method="DELETE">
+    <rsb:set attr="method" value="DELETE"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Deletes are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+</rsb:script>
