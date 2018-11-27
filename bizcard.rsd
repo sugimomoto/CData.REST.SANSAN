@@ -3,35 +3,35 @@
   <!-- See Column Definitions to specify column behavior and use XPaths to extract column values from JSON. -->
   <rsb:info title="bizcards_fix" desc="Generated schema file." xmlns:other="http://www.rssbus.com/ns/rsbscript/2/other">
     <!-- You can modify the name, type, and column size here.  The name must match the values in the rsb:script block below -->
-    <attr name="address"          xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/address"           />
-    <attr name="building"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/building"          />
-    <attr name="city"             xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/city"              />
-    <attr name="companyId"        xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/companyId"         />
-    <attr name="companyName"      xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/companyName"       />
-    <attr name="departmentName"   xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/departmentName"    />
-    <attr name="email"            xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/email"             />
-    <attr name="entryStatus"      xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/entryStatus"       />
-    <attr name="exchangeDate"     xs:type="date"     readonly="false" other:xPath="{SubRepeatElement}/exchangeDate"      />
-    <attr name="fax"              xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/fax"               />
-    <attr name="firstName"        xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/firstName"         />
-    <attr name="firstNameReading" xs:type="unknown"  readonly="false" other:xPath="{SubRepeatElement}/firstNameReading"  />
-    <attr name="id"               xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/id"                />
-    <attr name="lastName"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/lastName"          />
-    <attr name="lastNameReading"  xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/lastNameReading"   />
-    <attr name="memo"             xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/memo"              />
-    <attr name="mobile"           xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/mobile"            />
-    <attr name="owner_email"      xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/owner/email"       />
-    <attr name="owner_id"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/owner/id"          />
-    <attr name="owner_name"       xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/owner/name"        />
-    <attr name="personId"         xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/personId"          />
-    <attr name="postalCode"       xs:type="integer"  readonly="false" other:xPath="{SubRepeatElement}/postalCode"        />
-    <attr name="prefecture"       xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/prefecture"        />
-    <attr name="registeredTime"   xs:type="datetime" readonly="false" other:xPath="{SubRepeatElement}/registeredTime"    />
-    <attr name="secondTel"        xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/secondTel"         />
-    <attr name="street"           xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/street"            />
-    <attr name="tel"              xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/tel"               />
-    <attr name="title"            xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/title"             />
-    <attr name="url"              xs:type="string"   readonly="false" other:xPath="{SubRepeatElement}/url"               />
+    <attr name="address"          xs:type="string"   readonly="false" other:xPath="address"           />
+    <attr name="building"         xs:type="string"   readonly="false" other:xPath="building"          />
+    <attr name="city"             xs:type="string"   readonly="false" other:xPath="city"              />
+    <attr name="companyId"        xs:type="string"   readonly="false" other:xPath="companyId"         />
+    <attr name="companyName"      xs:type="string"   readonly="false" other:xPath="companyName"       />
+    <attr name="departmentName"   xs:type="string"   readonly="false" other:xPath="departmentName"    />
+    <attr name="email"            xs:type="string"   readonly="false" other:xPath="email"             />
+    <attr name="entryStatus"      xs:type="string"   readonly="false" other:xPath="entryStatus"       />
+    <attr name="exchangeDate"     xs:type="string"     readonly="false" other:xPath="exchangeDate"      />
+    <attr name="fax"              xs:type="string"   readonly="false" other:xPath="fax"               />
+    <attr name="firstName"        xs:type="string"   readonly="false" other:xPath="firstName"         />
+    <attr name="firstNameReading" xs:type="string"  readonly="false" other:xPath="firstNameReading"  />
+    <attr name="id"               xs:type="string"   readonly="false" other:xPath="id"                />
+    <attr name="lastName"         xs:type="string"   readonly="false" other:xPath="lastName"          />
+    <attr name="lastNameReading"  xs:type="string"   readonly="false" other:xPath="lastNameReading"   />
+    <attr name="memo"             xs:type="string"   readonly="false" other:xPath="memo"              />
+    <attr name="mobile"           xs:type="string"   readonly="false" other:xPath="mobile"            />
+    <attr name="owner_email"      xs:type="string"   readonly="false" other:xPath="owner_email"       />
+    <attr name="owner_id"         xs:type="string"   readonly="false" other:xPath="owner_id"          />
+    <attr name="owner_name"       xs:type="string"   readonly="false" other:xPath="owner_name"        />
+    <attr name="personId"         xs:type="string"   readonly="false" other:xPath="personId"          />
+    <attr name="postalCode"       xs:type="string"  readonly="false" other:xPath="postalCode"        />
+    <attr name="prefecture"       xs:type="string"   readonly="false" other:xPath="prefecture"        />
+    <attr name="registeredTime"   xs:type="string" readonly="false" other:xPath="registeredTime"    />
+    <attr name="secondTel"        xs:type="string"   readonly="false" other:xPath="secondTel"         />
+    <attr name="street"           xs:type="string"   readonly="false" other:xPath="street"            />
+    <attr name="tel"              xs:type="string"   readonly="false" other:xPath="tel"               />
+    <attr name="title"            xs:type="string"   readonly="false" other:xPath="title"             />
+    <attr name="url"              xs:type="string"   readonly="false" other:xPath="url"               />
 
     <input name="Rows@Next" desc="Identifier for the next page of results. Do not set this value manually." />
 
@@ -54,14 +54,12 @@
     <rsb:set attr="header:name" value="X-Sansan-Api-Key"/>
     <rsb:set attr="header:value" value=[_connection.ApiKey]/>
 
-    <rsb:set attr="RepeatElement" value="/"/>
-    <rsb:set attr="SubRepeatElement" value="/data"/>
+    <rsb:set attr="RepeatElement" value="/data"/>
 
     <rsb:set  attr="uri"  value="https://api.sansan.com/v1.2/bizCards/search?offset=[count]&amp;range=[_connection.Range]" />
 
     <rsb:call op="jsonproviderGet" output="OutputParam">
       <rsb:set attr="rows@next" value="[count]" />
-      <rsb:set attr="hasMoreContinue" value="[OutputParam.hasMore]" />
 
       <rsb:push/>
     </rsb:call>
